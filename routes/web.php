@@ -46,10 +46,15 @@ use App\Http\Middleware\PrimeiroMiddleware;
 //Route::get('/usuarios', 'UsuarioControlador@index')
 //->middleware('segundo', 'primeiro');
 
-//Passando parâmetro para o middlware
+/*Passando parâmetro para o middlware
 Route::get('/terceiro', function() {
     return 'Passou pelo terceiro middleware';
 })->middleware('terceiro:Luciano,37');
+*/
+
+// Sequencia de chamada dos middleware
+Route::get('/usuarios', 'UsuarioControlador@index')
+->middleware('primeiro', 'segundo');
 
 
 

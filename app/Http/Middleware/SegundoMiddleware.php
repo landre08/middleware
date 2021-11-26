@@ -16,8 +16,12 @@ class SegundoMiddleware
      */
     public function handle($request, Closure $next)
     {        
-        Log::debug('Passou pelo SegundoMiddleware');
+        Log::debug('Passou pelo SegundoMiddleware ANTES');
 
-        return $next($request);
+        // return $next($request);
+        $response = $next($request);
+
+        Log::debug('Passou pelo SegundoMiddleware DEPOIS');
+        return $response;
     }
 }
